@@ -1,11 +1,14 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('ChatRoomMessages', {
+    return queryInterface.createTable('ChatMessages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      chatRoomId: {
         type: Sequelize.INTEGER
       },
       author: {
@@ -13,9 +16,6 @@ module.exports = {
       },
       message: {
         type: Sequelize.TEXT
-      },
-      chatRoomId: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -28,6 +28,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('ChatRoomMessages');
+    return queryInterface.dropTable('ChatMessages');
   }
 };

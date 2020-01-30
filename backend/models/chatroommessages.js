@@ -1,12 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const ChatRoomMessages = sequelize.define('ChatRoomMessages', {
+  const ChatMessage = sequelize.define('ChatMessage', {
+    chatRoomId: DataTypes.INTEGER,
     author: DataTypes.STRING,
-    message: DataTypes.TEXT,
-    chatRoomId: DataTypes.INTEGER
+    message: DataTypes.TEXT
   }, {});
-  ChatRoomMessages.associate = function(models) {
+  ChatMessage.associate = function(models) {
     // associations can be defined here
+    ChatMessage.belongsTo(models.ChatRoom, {
+      foreignKey: 'chatRoomId',
+      targetKey: 'id'
+    });
   };
-  return ChatRoomMessages;
+  return ChatMessage;
 };
