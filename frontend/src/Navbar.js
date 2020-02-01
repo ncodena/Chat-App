@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { withRouter } from "react-router-dom";
 
-function TopBar({ location }) {
+function Navbar({ location }) {
   const { pathname } = location;
+  
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Navbar.Brand href="#home">Chat Room App</Navbar.Brand>
@@ -19,4 +21,4 @@ function TopBar({ location }) {
     </Navbar>
   );
 }
-export default withRouter(TopBar);
+export default withRouter(Navbar);
